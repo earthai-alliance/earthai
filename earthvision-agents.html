@@ -2,14 +2,13 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Earth Vision AI Alliance - A collaboration between MBZUAI and IBM advancing AI and Computer Vision for Earth Observation.">
-  <meta name="keywords" content="Earth Observation, Remote Sensing, Computer Vision, AI, Research Lab, MBZUAI, IBM">
+  <meta name="description" content="EarthVision Agents - Agent Frameworks for Earth Observation AI">
+  <meta name="keywords" content="AI Agents, Earth Observation, Remote Sensing, Tool Use, ThinkGeo">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Earth Vision AI Alliance</title>
+  <title>EarthVision Agents - Earth Vision AI Alliance</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" href="./static/images/favicon.svg">
 
   <style>
     * {
@@ -39,11 +38,6 @@
       box-shadow: 0 2px 20px rgba(0,0,0,0.1);
       z-index: 1000;
       transition: all 0.3s ease;
-    }
-
-    .navbar.scrolled {
-      background: rgba(255, 255, 255, 0.98);
-      box-shadow: 0 2px 30px rgba(0,0,0,0.15);
     }
 
     .nav-container {
@@ -86,57 +80,27 @@
       font-weight: 600;
     }
 
-    .nav-menu {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-menu a {
-      text-decoration: none;
-      color: #555;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      position: relative;
-    }
-
-    .nav-menu a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      transition: width 0.3s ease;
-    }
-
-    .nav-menu a:hover, .nav-menu a.active {
-      color: #667eea;
-    }
-
-    .nav-menu a:hover::after, .nav-menu a.active::after {
-      width: 100%;
-    }
-
-    .nav-burger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-    }
-
-    .nav-burger span {
-      width: 25px;
-      height: 3px;
-      background: #333;
-      border-radius: 2px;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
       transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
     }
 
     /* Hero Section */
     .hero {
-      min-height: 100vh;
+      min-height: 60vh;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       display: flex;
       align-items: center;
@@ -159,57 +123,22 @@
 
     .hero-content {
       max-width: 1200px;
-      display: flex;
-      align-items: center;
-      gap: 3rem;
+      text-align: center;
+      color: white;
       z-index: 1;
     }
 
-    .hero-logo {
-      width: 350px;
-      height: auto;
-      filter: drop-shadow(0 10px 30px rgba(0,0,0,0.2));
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-
-    .hero-text {
-      color: white;
-      flex: 1;
-    }
-
-    .hero-text h1 {
-      font-size: 3.5rem;
+    .hero-content h1 {
+      font-size: 4rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
-      line-height: 1.2;
-    }
-
-    .hero-text h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      opacity: 0.95;
-    }
-
-    .hero-text p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      max-width: 600px;
       margin-bottom: 1rem;
     }
 
-    .hero-text .collaboration-note {
-      font-size: 1rem;
-      opacity: 0.85;
-      font-style: italic;
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(255,255,255,0.3);
+    .hero-content p {
+      font-size: 1.3rem;
+      opacity: 0.95;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     /* Section Styles */
@@ -244,89 +173,73 @@
       border-radius: 2px;
     }
 
-    /* News Section */
-    .news-list {
-      list-style: none;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .news-list li {
-      padding: 1.5rem;
-      margin-bottom: 1rem;
+    /* Overview Section */
+    .overview {
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
     }
 
-    .news-list li:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    .overview-text {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #555;
     }
 
-    .news-list strong {
-      color: #667eea;
-      margin-right: 0.5rem;
-    }
-
-    /* People Section */
-    #people {
+    /* Key Features */
+    .features {
       background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     }
 
-    .people-grid {
+    .features-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      margin-bottom: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    .person-card {
-      text-align: center;
-      padding: 2rem;
+    .feature-card {
       background: white;
+      padding: 2rem;
       border-radius: 15px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.08);
       transition: all 0.3s ease;
     }
 
-    .person-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
     }
 
-    .person-avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 1rem;
-      border: 4px solid #667eea;
-      transition: all 0.3s ease;
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
 
-    .person-card:hover .person-avatar {
-      border-color: #764ba2;
-      transform: scale(1.05);
+    .feature-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #333;
     }
 
-    .person-name {
-      font-weight: 600;
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .person-title {
+    .feature-description {
       color: #666;
-      font-size: 0.95rem;
+      line-height: 1.6;
     }
 
-    /* Projects Section */
+    /* Projects Grid */
+    #subprojects {
+      background: white;
+    }
+
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
     .project-card {
@@ -335,201 +248,94 @@
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(0,0,0,0.08);
       transition: all 0.3s ease;
+      border: 2px solid #f0f0f0;
     }
 
     .project-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      border-color: #667eea;
     }
 
     .project-image {
       width: 100%;
-      height: 200px;
+      height: 250px;
       object-fit: cover;
     }
 
     .project-content {
-      padding: 1.5rem;
+      padding: 2rem;
     }
 
     .project-title {
-      font-size: 1.3rem;
-      font-weight: 600;
+      font-size: 1.8rem;
+      font-weight: 700;
       margin-bottom: 1rem;
-    }
-
-    .project-title a {
-      text-decoration: none;
       color: #333;
-      transition: color 0.3s ease;
     }
 
-    .project-title a:hover {
-      color: #667eea;
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .project-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
     }
 
     .project-description {
       color: #666;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-paper {
+      padding: 1rem;
+      background: #f8f9fa;
+      border-left: 4px solid #667eea;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      color: #555;
       line-height: 1.6;
     }
 
-    /* Papers Section */
-    #papers {
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    }
-
-    .papers-list {
-      list-style: none;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .papers-list li {
-      padding: 1.5rem;
-      margin-bottom: 1rem;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-    }
-
-    .papers-list li:hover {
-      transform: translateX(10px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-    }
-
-    /* Collaboration Section */
-    .collab-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .collab-logo-wrapper {
-      text-align: center;
-      padding: 2rem;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 120px;
-    }
-
-    .collab-logo-wrapper:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-    }
-
-    .collab-logo {
-      max-width: 150px;
-      max-height: 80px;
-      object-fit: contain;
-    }
-
-    /* Contact Section */
-    #contact {
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      text-align: center;
-    }
-
-    .contact-info {
-      margin: 2rem 0;
-      font-size: 1.1rem;
-    }
-
-    .contact-info a {
+    .project-paper strong {
       color: #667eea;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .contact-info a:hover {
-      color: #764ba2;
-    }
-
-    .social-icons {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-    }
-
-    .social-icons a {
-      color: #667eea;
-      font-size: 2rem;
-      transition: all 0.3s ease;
-    }
-
-    .social-icons a:hover {
-      color: #764ba2;
-      transform: translateY(-5px);
     }
 
     /* Responsive */
-    @media (max-width: 1024px) {
-      .people-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      
-      .collab-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
     @media (max-width: 768px) {
-      .nav-menu {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        flex-direction: column;
-        background: white;
-        width: 100%;
-        padding: 2rem;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        transition: left 0.3s ease;
-      }
-
-      .nav-menu.active {
-        left: 0;
-      }
-
-      .nav-burger {
-        display: flex;
-      }
-
-      .hero-content {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .hero-text h1 {
+      .hero-content h1 {
         font-size: 2.5rem;
-      }
-
-      .hero-logo {
-        width: 200px;
       }
 
       .projects-grid {
         grid-template-columns: 1fr;
       }
-      
-      .people-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .collab-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
 
-    @media (max-width: 480px) {
-      .people-grid {
+      .features-grid {
         grid-template-columns: 1fr;
+      }
+
+      .nav-logo-img {
+        height: 50px;
       }
     }
   </style>
@@ -539,7 +345,7 @@
 <!-- Navbar -->
 <nav class="navbar">
   <div class="nav-container">
-    <a href="#introduction" class="nav-logo">
+    <a href="index.html" class="nav-logo">
       <svg class="nav-logo-img" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="earthGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -598,315 +404,109 @@
         <span class="nav-logo-sub">AI Alliance</span>
       </div>
     </a>
-    <ul class="nav-menu">
-      <li><a href="#introduction" class="active">Home</a></li>
-      <li><a href="#news">News</a></li>
-      <li><a href="#people">People</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#papers">Papers</a></li>
-      <li><a href="#collaboration">Collaboration</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-burger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <a href="index.html#projects" class="back-button">
+      <i class="fas fa-arrow-left"></i>
+      Back to Home
+    </a>
   </div>
 </nav>
 
 <!-- Hero -->
-<section id="introduction" class="hero">
+<section class="hero">
   <div class="hero-content">
-    <svg class="hero-logo" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="heroEarthGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
-        </linearGradient>
-        <linearGradient id="heroOrbitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#667eea;stop-opacity:1" />
-        </linearGradient>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-          <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-      <circle cx="200" cy="200" r="80" fill="url(#heroEarthGradient)" filter="url(#glow)"/>
-      <g fill="rgba(255,255,255,0.3)">
-        <path d="M 160 160 Q 150 170 155 180 Q 160 190 170 185 Q 180 180 175 170 Q 170 160 160 160 Z"/>
-        <path d="M 210 170 Q 200 175 205 185 Q 210 195 220 190 Q 230 185 225 175 Q 220 165 210 170 Z"/>
-        <path d="M 230 155 Q 220 160 225 170 Q 230 180 240 175 Q 250 170 245 160 Q 240 150 230 155 Z"/>
-        <path d="M 180 210 Q 175 220 180 230 Q 185 240 190 235 Q 195 230 190 220 Q 185 210 180 210 Z"/>
-      </g>
-      <g fill="white" opacity="0.8">
-        <circle cx="170" cy="190" r="3"/>
-        <circle cx="190" cy="180" r="3"/>
-        <circle cx="210" cy="195" r="3"/>
-        <circle cx="195" cy="210" r="3"/>
-        <circle cx="215" cy="175" r="3"/>
-        <circle cx="230" cy="190" r="3"/>
-      </g>
-      <g stroke="white" stroke-width="1" opacity="0.4" fill="none">
-        <line x1="170" y1="190" x2="190" y2="180"/>
-        <line x1="190" y1="180" x2="210" y2="195"/>
-        <line x1="210" y1="195" x2="195" y2="210"/>
-        <line x1="190" y1="180" x2="215" y2="175"/>
-        <line x1="215" y1="175" x2="230" y2="190"/>
-        <line x1="210" y1="195" x2="230" y2="190"/>
-      </g>
-      <g fill="none" stroke="url(#heroOrbitGradient)" stroke-width="2" opacity="0.6">
-        <ellipse cx="200" cy="200" rx="110" ry="50" transform="rotate(20 200 200)"/>
-        <ellipse cx="200" cy="200" rx="110" ry="50" transform="rotate(-20 200 200)"/>
-        <ellipse cx="200" cy="200" rx="110" ry="50" transform="rotate(60 200 200)"/>
-      </g>
-      <g fill="#00d4ff">
-        <circle cx="310" cy="200" r="4"/>
-        <circle cx="90" cy="200" r="4"/>
-        <circle cx="200" cy="120" r="4"/>
-        <circle cx="200" cy="280" r="4"/>
-      </g>
-      <g transform="translate(200, 200)">
-        <path d="M -25 0 Q -25 -15 0 -20 Q 25 -15 25 0 Q 25 15 0 20 Q -25 15 -25 0 Z" 
-              fill="none" stroke="white" stroke-width="2" opacity="0.7"/>
-        <circle cx="0" cy="0" r="8" fill="white" opacity="0.9"/>
-        <circle cx="0" cy="0" r="5" fill="#667eea"/>
-        <circle cx="-2" cy="-2" r="2" fill="white"/>
-      </g>
-      <text x="200" y="340" font-family="Arial, sans-serif" font-size="28" font-weight="bold" 
-            fill="#333" text-anchor="middle">EARTH VISION</text>
-      <text x="200" y="365" font-family="Arial, sans-serif" font-size="20" font-weight="600" 
-            fill="#667eea" text-anchor="middle">AI Alliance</text>
-    </svg>
-    <div class="hero-text">
-      <h1>Earth Vision AI Alliance</h1>
-      <h2>Advancing AI and Computer Vision for Earth Observation</h2>
-      <p>We focus on cutting-edge research in remote sensing, satellite imagery analysis, and AI-powered solutions for understanding our planet.</p>
-      <p class="collaboration-note">
-        A joint research initiative between Mohamed bin Zayed University of Artificial Intelligence (MBZUAI) and IBM Research, combining academic excellence with industry innovation to tackle the most challenging problems in geospatial AI and Earth observation.
+    <h1>EarthVision Agents</h1>
+    <p>Agent Frameworks for Autonomous Earth Observation Intelligence</p>
+  </div>
+</section>
+
+<!-- Overview -->
+<section class="overview">
+  <div class="container">
+    <h2 class="section-title">Overview</h2>
+    <div class="overview-text">
+      <p>
+        EarthVision Agents represents a paradigm shift in how we approach complex Earth Observation (EO) tasks. Rather than building single-purpose AI models, we develop autonomous agent frameworks that can reason, plan, and execute multi-step workflows to solve sophisticated remote sensing challenges.
+      </p>
+      <p style="margin-top: 1.5rem;">
+        These agents combine vision-language understanding, tool use capabilities, and structured reasoning to tackle real-world EO problems that require breaking down complex queries into manageable steps, utilizing specialized tools, and synthesizing information across multiple data sources. Our agent frameworks enable more flexible, interpretable, and powerful Earth AI systems that can adapt to diverse and evolving analysis requirements.
       </p>
     </div>
   </div>
 </section>
 
-<!-- News -->
-<section id="news">
+<!-- Key Features -->
+<section class="features">
   <div class="container">
-    <h2 class="section-title">📰 News</h2>
-    <ul class="news-list">
-      <li><strong>[2025-11]</strong> GeoVLM-R1 is available on arXiv.</li>
-      <li><strong>[2025-05]</strong> GEOBench-VLM is accepted at ICCV 2025.</li>
-      <li><strong>[2025-05]</strong> ThinkGeo is now publicly available.</li>
-      <li><strong>[2025-06]</strong> EarthDial paper accepted at CVPR 2025.</li>
-    </ul>
-  </div>
-</section>
+    <h2 class="section-title">Key Capabilities</h2>
+    <div class="features-grid">
+      
+      <div class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <div class="feature-title">Structured Reasoning</div>
+        <div class="feature-description">
+          Agents break down complex EO tasks into logical steps, planning and executing multi-stage analysis workflows with clear reasoning chains.
+        </div>
+      </div>
 
-<!-- People -->
-<section id="people">
-  <div class="container">
-    <h2 class="section-title">👩‍🔬 People</h2>
-    <div class="people-grid">
-      <div class="person-card">
-        <img src="static/images/salman.png" alt="Dr. Salman Khan" class="person-avatar">
-        <div class="person-name">Dr. Salman Khan</div>
-        <div class="person-title">Prof. MBZUAI</div>
+      <div class="feature-card">
+        <div class="feature-icon">🔧</div>
+        <div class="feature-title">Tool Augmentation</div>
+        <div class="feature-description">
+          Integration with specialized remote sensing tools and APIs, enabling agents to leverage domain-specific capabilities for advanced analysis.
+        </div>
       </div>
-      <div class="person-card">
-        <img src="static/images/fahad.png" alt="Dr. Fahad Khan" class="person-avatar">
-        <div class="person-name">Dr. Fahad Khan</div>
-        <div class="person-title">Prof. MBZUAI</div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-title">Task Decomposition</div>
+        <div class="feature-description">
+          Automatic decomposition of high-level user queries into executable sub-tasks, managing dependencies and orchestrating complex workflows.
+        </div>
       </div>
-      <div class="person-card">
-        <img src="static/images/shantanu.png" alt="Dr. Shantanu Godbole" class="person-avatar">
-        <div class="person-name">Dr. Shantanu Godbole</div>
-        <div class="person-title">Team Lead, IBM</div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <div class="feature-title">Adaptive Problem Solving</div>
+        <div class="feature-description">
+          Dynamic adaptation to task requirements, selecting appropriate strategies and tools based on the specific EO analysis context.
+        </div>
       </div>
-      <div class="person-card">
-        <img src="static/images/paolo.png" alt="Dr. Paolo Fraccaro" class="person-avatar">
-        <div class="person-name">Dr. Paolo Fraccaro</div>
-        <div class="person-title">Senior Software Developer, IBM</div>
-      </div>
-      <div class="person-card">
-        <img src="static/images/mustansar1.png" alt="Dr. Mustansar Fiaz" class="person-avatar">
-        <div class="person-name">Dr. Mustansar Fiaz</div>
-        <div class="person-title">Researcher, IBM</div>
-      </div>
-      <div class="person-card">
-        <img src="static/images/hiyam.png" alt="Dr. Hiyam Debary" class="person-avatar">
-        <div class="person-name">Dr. Hiyam Debary</div>
-        <div class="person-title">Researcher, IBM</div>
-      </div>
-      <div class="person-card">
-        <img src="static/images/zaigham.png" alt="Dr. Zaigham Zaheer" class="person-avatar">
-        <div class="person-name">Dr. Zaigham Zaheer</div>
-        <div class="person-title">Researcher, MBZUAI</div>
-      </div>
-      <div class="person-card">
-        <img src="static/images/akhter.png" alt="Dr. Muhammad Akhter" class="person-avatar">
-        <div class="person-name">Dr. Muhammad Akhter</div>
-        <div class="person-title">Researcher, MBZUAI</div>
-      </div>
+
     </div>
   </div>
 </section>
 
 <!-- Projects -->
-<section id="projects">
+<section id="subprojects">
   <div class="container">
-    <h2 class="section-title">💡 Projects</h2>
+    <h2 class="section-title">Research Projects</h2>
     <div class="projects-grid">
-      <div class="project-card">
-        <img src="static/images/Fig2.png" alt="GeoVLM-R1" class="project-image">
-        <div class="project-content">
-          <div class="project-title">
-            <a href="https://mustansarfiaz.github.io/GeoVLM-R1/" target="_blank">GeoVLM-R1</a>
-          </div>
-          <div class="project-description">
-            GeoVLM-R1, a reinforcement learning framework that encourages VLM to enhance its reasoning capabilities with flexibility, scalability, and ease of experimentation in mind for diverse EO tasks.
-          </div>
-        </div>
-      </div>
-      <div class="project-card">
-        <img src="static/images/geo_bench_vlm.png" alt="GEOBench-VLM" class="project-image">
-        <div class="project-content">
-          <div class="project-title">
-            <a href="https://the-ai-alliance.github.io/GEO-Bench-VLM/" target="_blank">GEOBench-VLM</a>
-          </div>
-          <div class="project-description">
-            GEOBench-VLM benchmark addresses the unique challenges of geospatial data, such as temporal analysis, fine-grained object detection, damage assessment, and spatial reasoning.
-          </div>
-        </div>
-      </div>
+      
+      <!-- ThinkGeo -->
       <div class="project-card">
         <img src="static/images/thinkgeo.png" alt="ThinkGeo" class="project-image">
         <div class="project-content">
-          <div class="project-title">
-            <a href="https://mbzuai-oryx.github.io/ThinkGeo/" target="_blank">ThinkGeo</a>
+          <h3 class="project-title">ThinkGeo</h3>
+          <div class="project-links">
+            <a href="https://mbzuai-oryx.github.io/ThinkGeo/" target="_blank" class="project-link">
+              <i class="fas fa-globe"></i> Project Page
+            </a>
+            <a href="https://arxiv.org/pdf/2505.23752" target="_blank" class="project-link">
+              <i class="fas fa-file-pdf"></i> arXiv
+            </a>
           </div>
-          <div class="project-description">
-            ThinkGeo is a specialized benchmark designed to evaluate how language model agents handle complex remote sensing tasks through structured tool use and step-by-step reasoning.
+          <p class="project-description">
+            ThinkGeo is a specialized benchmark designed to evaluate how language model agents handle complex remote sensing tasks through structured tool use and step-by-step reasoning. The benchmark assesses agent capabilities across diverse EO scenarios requiring planning, tool selection, and multi-step problem decomposition. ThinkGeo provides comprehensive evaluation metrics for measuring agent performance in real-world Earth observation applications, helping advance the development of more capable and reliable autonomous EO systems.
+          </p>
+          <div class="project-paper">
+            <strong>[arXiv 2025]</strong> Shabbir, Akashah, et al. "ThinkGeo: Evaluating Tool-Augmented Agents for Remote Sensing Tasks." arXiv preprint arXiv:2505.23752 (2025).
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
-
-<!-- Papers -->
-<section id="papers">
-  <div class="container">
-    <h2 class="section-title">📄 Publications</h2>
-    <ul class="papers-list">
-      <li><strong>[2025]</strong> Simumba, Naomi, et al. "Geo-bench-2: From performance to capability, rethinking evaluation in geospatial ai." arXiv preprint arXiv:2511.15658 (2025).</li>
-      <li><strong>[2025]</strong> Fiaz, Mustansar, et al. "Geovlm-r1: Reinforcement fine-tuning for improved remote sensing reasoning." arXiv preprint arXiv:2509.25026 (2025).</li>
-      <li><strong>[2025]</strong> Danish, Muhammad, et al. "Geobench-vlm: Benchmarking vision-language models for geospatial tasks." Proceedings of the IEEE/CVF ICCV. 2025.</li>
-      <li><strong>[2025]</strong> Shabbir, Akashah, et al. "ThinkGeo: Evaluating Tool-Augmented Agents for Remote Sensing Tasks." arXiv preprint arXiv:2505.23752 (2025).</li>
-      <li><strong>[2025]</strong> Soni, Sagar, et al. "Earthdial: Turning multi-sensory earth observations to interactive dialogues." Proceedings of the CVPR. 2025.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- Collaboration -->
-<section id="collaboration">
-  <div class="container">
-    <h2 class="section-title">🙏 Collaboration</h2>
-    <div class="collab-grid">
-      <a href="https://www.ibm.com/us-en" target="_blank" class="collab-logo-wrapper">
-        <img src="static/images/IBM_logo.png" alt="IBM" class="collab-logo">
-      </a>
-      <a href="https://mbzuai.ac.ae" target="_blank" class="collab-logo-wrapper">
-        <img src="static/images/mbzuai_logo.png" alt="MBZUAI" class="collab-logo">
-      </a>
-      <div class="collab-logo-wrapper">
-        <img src="static/images/insait.png" alt="INSAIT" class="collab-logo">
-      </div>
-      <div class="collab-logo-wrapper">
-        <img src="static/images/eth.png" alt="ETH" class="collab-logo">
-      </div>
-      <div class="collab-logo-wrapper">
-        <img src="static/images/linkoping.png" alt="Linköping University" class="collab-logo">
-      </div>
-      <div class="collab-logo-wrapper">
-        <img src="static/images/anu.png" alt="ANU" class="collab-logo">
-      </div>
-      <div class="collab-logo-wrapper">
-        <img src="static/images/ucl.png" alt="UCL" class="collab-logo">
-      </div>
-      <div class="collab-logo-wrapper">
-        <img src="static/images/servicenow.png" alt="ServiceNow" class="collab-logo">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Contact -->
-<section id="contact">
-  <div class="container">
-    <h2 class="section-title">📬 Contact</h2>
-    <div class="contact-info">
-      <p>Email: <a href="mailto:mustansar[.] fiaz [at] ibm[.]com">mustansar[.] fiaz [at] ibm[.]com</a></p>
-      <p>Address: MBZUAI, Masdar City, Abu Dhabi, United Arab Emirates</p>
-    </div>
-    <div class="social-icons">
-      <a href="https://github.com/earthvilab" target="_blank" aria-label="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-  </div>
-</section>
-
-<script>
-  // Navbar scroll effect
-  window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-
-  // Mobile menu toggle
-  const burger = document.querySelector('.nav-burger');
-  const menu = document.querySelector('.nav-menu');
-  burger.addEventListener('click', () => {
-    menu.classList.toggle('active');
-  });
-
-  // Active nav link
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('.nav-menu a');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      if (window.pageYOffset >= sectionTop) {
-        current = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) {
-        link.classList.add('active');
-      }
-    });
-  });
-
-  // Close mobile menu on link click
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.remove('active');
-    });
-  });
-</script>
 
 </body>
 </html>
-
